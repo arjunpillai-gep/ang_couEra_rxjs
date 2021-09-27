@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Dishes</h3>
+    <div *ngIf="dish">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="{{dish.image}}" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">{{dish.name | uppercase}}</h4>
+            <p class="card-text">{{dish.description}}</p>
+            <a href="#" class="btn btn-primary mr-5">Like</a>
+            <a href="#" class="btn btn-danger">Share</a>
+            
+          </div>
+        </div>
+    </div>
+<!-- 
+    #when data is not available this will show-->
+    <div [hidden]="dish">  
+      <div class="spinner-border"></div> <h4>Loading please wait....</h4>
+    </div>
+    <h3>Promotion</h3>
+      <div *ngIf="promotion">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="{{promotion.image}}" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">{{promotion.name | uppercase}}</h4>
+            <p class="card-text">{{promotion.description}}</p>
+            <a href="#" class="btn btn-primary mr-5">Like</a>
+            <a href="#" class="btn btn-danger">Share</a>
+          </div>
+        </div>
+      </div>
+</div>

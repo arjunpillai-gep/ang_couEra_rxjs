@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div *ngIf="dishes">
+    <div class="container jumbotron" *ngFor="let dish of dishes">
+      <h3>{{dish.name}}</h3>
+      <p>{{dish.description}}</p>
+    </div>
+  
+      <table class="table border" >
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Category</th>
+              <th>Feature</th>
+              <th>Price</th>
+              <th>Label</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let i of dishes">
+            <tr>
+              <td>{{i.id}}</td>
+              <td>{{i.name}}</td>
+              <td><img src={{i.image}}></td>
+              <td>{{i.category}}</td>
+              <td>{{i.feature}}</td>
+              <td>{{i.price}}</td>
+              <td>{{i.label}}</td>
+              <td>{{i.description}}</td>
+              <td><a class="btn btn-info" routerLink="/dishdetail" [queryParams]={id:i.id}>Click </a></td>
+            </tr>
+            
+          </tbody>
+        </table>
+  </div>
+  <div [hidden]="dishes">
+    <div class="spinner-grow text-muted"></div><div class="spinner-grow text-muted"></div><div class="spinner-grow text-muted"></div><h4>Loading.....Please wait</h4>
+  </div>
+  
+
+
+</body>
+</html>

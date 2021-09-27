@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    <h3>Login</h3>
+    {{user|json}}
+    <hr>
+    <form novalidate #frm = "ngForm" (ngSubmit)="LoginForm()">
+        <label>Username</label>
+        <input type="text" name="username" [(ngModel)]="user.username" #uname="ngModel" required><br>
+        <div class="alert" *ngIf="uname.invalid && uname.touched">
+            <div *ngIf="uname.errors?.required">Username is empty</div>
+        </div>
+        <label>Password</label>
+        <input type="password" name="password" [(ngModel)]="user.password" #passwd="ngModel" required ><br>
+        <div class="alert" *ngIf="passwd.invalid && passwd.touched">
+            <div *ngIf="passwd.errors?.required">Password is empty</div>
+        </div>
+        <label>Rember me</label> &nbsp;
+        <input type="checkbox" [(ngModel)]="user.remember" name="remember"><br>
+        <button class="btn btn-danger" [disabled]="frm.form.invalid">Submit</button>
+    </form>
+</body>
+</html>
